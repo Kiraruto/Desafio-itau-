@@ -22,6 +22,10 @@ public class TransacaoRepository {
         return new ArrayList<>(transacaolist);
     }
 
+    public List<Transacao> deleteAll() {
+        transacaolist.clear();
+        return new ArrayList<>();
+    }
 
     private ResponseEntity<?> service(Transacao transacao) {
 

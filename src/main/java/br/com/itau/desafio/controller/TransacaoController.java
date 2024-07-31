@@ -36,4 +36,12 @@ public class TransacaoController {
         }
     }
 
+    @DeleteMapping
+    @Transactional
+    public ResponseEntity<?> deleteTransacao(@RequestBody @Valid DetalhamentoTransacao dados) {
+
+        transacaoRepository.deleteAll();
+
+        return ResponseEntity.status(200).build();
+    }
 }
