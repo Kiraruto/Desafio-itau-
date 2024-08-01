@@ -2,7 +2,7 @@ package br.com.itau.desafio.controller;
 
 import br.com.itau.desafio.domain.Transacao;
 import br.com.itau.desafio.dto.DetalhamentoTransacao;
-import br.com.itau.desafio.repository.TransacaoRepository;
+import br.com.itau.desafio.repository.Repository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class TransacaoController {
 
     @Autowired
-    private TransacaoRepository transacaoRepository;
+    private Repository transacaoRepository;
 
     @PostMapping
     @Transactional
@@ -38,7 +38,7 @@ public class TransacaoController {
 
     @DeleteMapping
     @Transactional
-    public ResponseEntity<?> deleteTransacao(@RequestBody @Valid DetalhamentoTransacao dados) {
+    public ResponseEntity<?> deleteTransacao() {
 
         transacaoRepository.deleteAll();
 
